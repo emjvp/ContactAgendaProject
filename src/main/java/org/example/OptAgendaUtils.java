@@ -43,23 +43,4 @@ public final class OptAgendaUtils {
         return false;
     }
 
-    public void listContactsOpt(){
-        // TODO: implementar
-    }
-
-    public void listFavoriteContactsOpt(){
-        // TODO: implementar
-    }
-
-
-    public boolean isFullOpt() {
-        // TODO: implementar
-        return false;
-    }
-
-    public int countFavorite(){
-        // TODO: implementar
-        return 0;
-    }
-
 }

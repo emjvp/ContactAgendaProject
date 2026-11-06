@@ -1,7 +1,7 @@
 package org.example;
 
 public class Contact {
-    // TODO: usar toString
+    // TODO: usar toString en la versión 2 del programa
     private String name;
     private String email;
     private boolean favorite;
