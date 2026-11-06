@@ -1,60 +1,48 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
+    final static Scanner INPUT = new Scanner(System.in);
     static void main() {
-        Agenda mainAgenda = new Agenda(-1);
 
-        mainAgenda.add(
-                new Contact(
-                        "Test contact 1",
-                        "test@example.com",
-                        false
-                )
-        );
+        // TODO: usar pruebas unitarias, este es el ultimo paso
+        Agenda mainAgenda = new Agenda(100);
 
-        mainAgenda.add(
-                new Contact(
-                        "Test contact 2",
-                        "test2@example.com",
-                        false
-                )
-        );
+        System.out.println("Bienvenido");
+        System.out.println("===============TU AGENDA DE CONTACTOS===============");
+        System.out.println("Este programa tiene 2 versiones, deseas ejecutar la # 1 que tiene las funciones basicas o la #2 que tiene más funcionaldiades? \n");
+        int choice;
+        outer:
+           do {
 
-        mainAgenda.add(
-                new Contact(
-                        "Test contact 3",
-                        "test3@example.com",
-                        false
-                )
-        );
+               System.out.println("1. Basico");
+               System.out.println("2. Agenda con mas funcionalidades");
+               System.out.println("0. Salir del programa");
 
-        mainAgenda.add(
-                new Contact(
-                        "Test contact 4",
-                        "test4@example.com",
-                        false
-                )
-        );
+               choice = INPUT.nextInt();
 
-        mainAgenda.add(
-                new Contact(
-                        "Test contact 5 Fav",
-                        "test5fav@example.com",
-                        true
-                )
-        );
+               switch (choice) {
+                   case 0:
+                       System.out.println("Opcion 0 seleccionada | Saliendo del programa");
+                       break;
+                   case 1:
+                       break outer;
+                   case 2:
+                       break outer;
 
-        mainAgenda.add(
-                new Contact(
-                        "Test contact 6 Fav",
-                        "test6fav@example.com",
-                        true
-                )
-        );
+                   default:
+                       System.out.println("Opcion no valida");
 
-        // mainAgenda.list();
-        // mainAgenda.listFavorites();
-        System.out.println(mainAgenda.isEmpty());
+               }
 
+           } while (choice != 0);
+
+           if (choice == 1) {
+               System.out.println("Entrado a la opción 1");
+           } else if (choice == 2) {
+               // TODO: implementar opción 2
+               System.out.println("Aún no implementado");
+           }
     }
 }
