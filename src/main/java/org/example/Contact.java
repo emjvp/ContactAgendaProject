@@ -1,6 +1,7 @@
 package org.example;
 
 public class Contact {
+    // TODO: usar toString
     private String name;
     private String email;
     private boolean favorite;
@@ -18,4 +19,9 @@ public class Contact {
     public String getEmail() {
         return email;
     }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
 }

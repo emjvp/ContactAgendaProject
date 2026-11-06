@@ -2,7 +2,7 @@ package org.example;
 
 public class Main {
     static void main() {
-        Agenda mainAgenda = new Agenda(4);
+        Agenda mainAgenda = new Agenda(-1);
 
         mainAgenda.add(
                 new Contact(
@@ -36,9 +36,25 @@ public class Main {
                 )
         );
 
-        System.out.println("Contacto para eliminar encontrado: "+mainAgenda.remove(""));
+        mainAgenda.add(
+                new Contact(
+                        "Test contact 5 Fav",
+                        "test5fav@example.com",
+                        true
+                )
+        );
 
-        mainAgenda.list();
+        mainAgenda.add(
+                new Contact(
+                        "Test contact 6 Fav",
+                        "test6fav@example.com",
+                        true
+                )
+        );
+
+        // mainAgenda.list();
+        // mainAgenda.listFavorites();
+        System.out.println(mainAgenda.isEmpty());
 
     }
 }
