@@ -71,6 +71,7 @@ public class Agenda {
                 System.out.println("---------------------");
             }
         }
+        System.out.println("---Fin de la lista---");
     }
 
     public void listFavorites() {
@@ -82,6 +83,7 @@ public class Agenda {
                 System.out.println("---------------------");
             }
         }
+        System.out.println("---Fin de la lista---");
     }
 
     public int count() {
@@ -94,7 +96,7 @@ public class Agenda {
         return counter;
     }
 
-    public int countFavorite() {
+    public int countFavorites() {
 
         int favoriteCount = 0;
         for (Contact contact : contacts) {

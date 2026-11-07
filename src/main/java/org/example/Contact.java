@@ -12,6 +12,11 @@ public class Contact {
         this.favorite = favorite;
     }
 
+    @Override
+    public String toString() {
+        return "Nombre del contacto: "+this.name + " \n Correo del usuario: \n" + this.email + " \n Es favorito: " + this.favorite;
+    }
+
     public String getName() {
         return name;
     }
