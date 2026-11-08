@@ -68,6 +68,7 @@ public class Agenda {
                 System.out.println("---------------------");
                 System.out.println(contact.getName());
                 System.out.println(contact.getEmail());
+                System.out.println(contact.getPhone());
                 System.out.println("---------------------");
             }
         }

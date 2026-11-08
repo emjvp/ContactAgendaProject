@@ -4,17 +4,19 @@ public class Contact {
     // TODO: usar toString en la versión 2 del programa
     private String name;
     private String email;
-    private boolean favorite;
+    private String phone;
+    private boolean isFavorite;
 
-    Contact(String name, String email, boolean favorite) {
+    Contact(String name, String email, String phone, boolean isFavorite) {
         this.name = name;
         this.email = email;
-        this.favorite = favorite;
+        this.phone = phone;
+        this.isFavorite = isFavorite;
     }
 
     @Override
     public String toString() {
-        return "Nombre del contacto: "+this.name + " \n Correo del usuario: \n" + this.email + " \n Es favorito: " + this.favorite;
+        return "Nombre del contacto: "+this.name + " \n Correo del usuario: \n" + this.email + " \n Es favorito: " + this.isFavorite;
     }
 
     public String getName() {
@@ -26,7 +28,10 @@ public class Contact {
     }
 
     public boolean isFavorite() {
-        return favorite;
+        return isFavorite;
     }
 
+    public String getPhone() {
+        return phone;
+    }
 }

@@ -24,8 +24,8 @@ public class Main {
                System.out.println("4. Eliminar contacto");
                System.out.println("5. Listar contactos favoritos");
                System.out.println("6. Contar contactos favoritos");
-               System.out.println("7. Valida si la lista esta llena");
-               System.out.println("8. Valida si la lista esta vacía");
+               System.out.println("7. Valida si la agend esta llena");
+               System.out.println("8. Valida si la agenda esta vacía");
                System.out.println("0. Salir del programa");
 
                choice = INPUT.nextInt();
@@ -39,10 +39,12 @@ public class Main {
                            String name = INPUT.nextLine();
                            System.out.println("Ingresa el email del contacto");
                            String email = INPUT.nextLine();
-                           System.out.println("Es un contacto favorito? \n");
+                           System.out.println("Ingresa el telefono del contacto");
+                           String phone = INPUT.nextLine();
+                           System.out.println("Es un contacto favorito?");
                            System.out.println("1. Para Si");
                            boolean isFavorite = INPUT.nextInt() == 1;
-                           boolean result = mainAgenda.add(new Contact(name, email, isFavorite));
+                           boolean result = mainAgenda.add(new Contact(name, email, phone, isFavorite));
 
                            if (result) {
                                System.out.println("Contacto agregado exitosamente");
@@ -71,7 +73,7 @@ public class Main {
                            System.out.println("Ingresa el nombre del contacto a buscar");
                            Contact foundedContact = mainAgenda.search(INPUT.nextLine());
                            if (foundedContact != null) {
-                               System.out.println("Nombre del contacto: "+ foundedContact.getName()+"\n Correo del contacto: "+foundedContact.getEmail());
+                               System.out.println("Nombre del contacto: "+ foundedContact.getName()+"\nCorreo del contacto: "+foundedContact.getEmail()+"\nTelefono del contacto: "+foundedContact.getPhone());
                            } else {
                                System.out.println("Contacto no encontrado");
                            }
@@ -115,7 +117,10 @@ public class Main {
                    case 6:
 
                        int favorites = mainAgenda.countFavorites();
-                       wattingPrint("Contando");
+
+                       if (favorites > 0){
+                           wattingPrint("Contando");
+                       }
 
                        printDependingOnCondition(
                                favorites > 0,
