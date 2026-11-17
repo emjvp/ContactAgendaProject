@@ -30,7 +30,7 @@ public class Agenda {
         }
 
         if (this.isFull()) {
-            this.contacts = Arrays.copyOf(this.contacts, this.initialCapacity + 1);
+            this.contacts = Arrays.copyOf(this.contacts, this.initialCapacity * 2);
         }
 
         String newContactEmail = contact.getEmail();
