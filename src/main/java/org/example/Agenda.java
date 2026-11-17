@@ -1,32 +1,46 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Agenda {
 
     public static int lastTakenPosition = 0;
+    private int initialCapacity;
     private int capacity;
     private Contact[] contacts;
 
-    public Agenda(int capacity) {
+    public Agenda(int initialCapacity) {
 
-        if (capacity > 0){
-            this.capacity = capacity;
-        } else {
-            this.capacity = 1;
+        this.capacity = 1;
+
+        if (initialCapacity > 0){
+            this.initialCapacity = initialCapacity;
+        }  else {
+            this.initialCapacity = 1;
         }
 
-        this.contacts = new Contact[this.capacity];
+        this.contacts = new Contact[this.initialCapacity];
     }
 
     public boolean add(Contact contact) {
+
+        if (Objects.isNull(contact)) {
+            return false;
+        }
+
+        if (this.isFull()) {
+            this.contacts = Arrays.copyOf(this.contacts, this.initialCapacity + 1);
+        }
+
+        String newContactEmail = contact.getEmail();
+
         for (int i = 0; i < contacts.length; i++) {
             if (contacts[i] == null) {
-                if (contact.getEmail().contains("@")){ // TODO: validar que la ultima cadena sea .com;
+                if (!Objects.equals(contact.getEmail(), newContactEmail)) {
                     contacts[i] = contact;
                     return true;
-                } else {
-                    return false;
                 }
-
             }
         }
 
@@ -48,9 +62,9 @@ public class Agenda {
         return null;
     }
 
-    public boolean remove(String name) {
+    public boolean remove(String email) {
         for (int i = 0; i < contacts.length; i++) {
-            if (contacts[i] != null && contacts[i].getName().equalsIgnoreCase(name)) {
+            if (contacts[i] != null && contacts[i].getEmail().equalsIgnoreCase(email)) {
                 for (int j = i; j < contacts.length - 1; j++) {
                     contacts[j] = contacts[j + 1];
                 }
@@ -63,7 +77,8 @@ public class Agenda {
 
 
     public void list() {
-        for(Contact contact : contacts) {
+        Contact[] contactsList = this.contacts.clone();
+        for(Contact contact : contactsList) {
             if (contact != null) {
                 System.out.println("---------------------");
                 System.out.println(contact.getName());
@@ -118,7 +133,7 @@ public class Agenda {
             }
         }
 
-        return contactsWithInfo == capacity;
+        return contactsWithInfo == initialCapacity;
     }
 
     public boolean isEmpty() {
