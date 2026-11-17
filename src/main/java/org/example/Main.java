@@ -41,10 +41,12 @@ public class Main {
                            String email = INPUT.nextLine();
                            System.out.println("Ingresa el telefono del contacto");
                            String phone = INPUT.nextLine();
+                           System.out.println("Ingresa la edad del contacto");
+                           int age = INPUT.nextInt();
                            System.out.println("Es un contacto favorito?");
                            System.out.println("1. Para Si");
                            boolean isFavorite = INPUT.nextInt() == 1;
-                           boolean result = mainAgenda.add(new Contact(name, email, phone, isFavorite));
+                           boolean result = mainAgenda.add(new Contact(name, email, phone, age, isFavorite));
 
                            if (result) {
                                System.out.println("Contacto agregado exitosamente");
